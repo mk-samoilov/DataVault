@@ -64,8 +64,7 @@ class FileServer:
                 "hash": file_hash,
                 "size": len(file_data),
                 "upload_time": datetime.now().isoformat(),
-                "mime_type": self._get_mime_type(filename),
-                "download_count": 0
+                "mime_type": self._get_mime_type(filename)
             }
             
             self.metadata["files"][file_hash] = file_info
@@ -89,9 +88,6 @@ class FileServer:
         try:
             with open(file_path, "rb") as f:
                 file_data = f.read()
-            
-            self.metadata["files"][file_hash]["download_count"] += 1
-            self._save_metadata()
             
             file_info = self.metadata["files"][file_hash]
             return {
@@ -138,8 +134,7 @@ class FileServer:
                 "filename": file_info["filename"],
                 "size": file_info["size"],
                 "upload_time": file_info["upload_time"],
-                "mime_type": file_info["mime_type"],
-                "download_count": file_info["download_count"]
+                "mime_type": file_info["mime_type"]
             })
         
         return {
@@ -175,8 +170,7 @@ class FileServer:
                     "filename": file_info["filename"],
                     "size": file_info["size"],
                     "upload_time": file_info["upload_time"],
-                    "mime_type": file_info["mime_type"],
-                    "download_count": file_info["download_count"]
+                    "mime_type": file_info["mime_type"]
                 })
         
         return {"success": True, "files": results, "total": len(results)}
