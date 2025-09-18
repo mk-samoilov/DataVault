@@ -1,0 +1,171 @@
+body {
+    font-family: sans-serif;
+    background: #f9f9f9;
+    color: #222;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #000;
+}
+
+.btn-danger {
+    background: #c0392b;
+}
+
+.btn-success {
+    background: #27ae60;
+}
+
+.upload-area {
+    border: 2px dashed #aaa;
+    border-radius: 6px;
+    padding: 30px;
+    text-align: center;
+    color: #555;
+    cursor: pointer;
+}
+
+.upload-area.dragover {
+    border-color: #27ae60;
+    background: #f0fff0;
+}
+
+.file-input {
+    display: none;
+}
+
+.files-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.file-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    background: #fff;
+}
+
+.file-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.file-info {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.stat-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+}
+
+.stats-section {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.stat-number {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 15px 0;
+    font-size: 0.9rem;
+}
+
+.alert-success {
+    background: #eafaf1;
+    border: 1px solid #27ae60;
+    color: #27ae60;
+}
+
+.alert-error {
+    background: #fdecea;
+    border: 1px solid #c0392b;
+    color: #c0392b;
+}
+
+.loading {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background: #eee;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #333;
+    width: 0%;
+}
