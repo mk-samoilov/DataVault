@@ -14,7 +14,7 @@ def index():
 
 @app.route("/disk")
 def disk():
-    return render_template("disk.html")
+    return render_template("dashboard.html")
 
 
 @app.route("/api/upload", methods=["POST"])
