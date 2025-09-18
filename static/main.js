@@ -28,9 +28,11 @@ async function loadStats() {
         const response = await fetch("/api/stats");
         const data = await response.json();
         if (data.success) {
-            document.getElementById("total-files").textContent = data.stats.total_files;
+            document.getElementById("total-files").textContent = data.stats.total_files + " Files";
             document.getElementById("total-size").textContent = formatBytes(data.stats.total_size);
             document.getElementById("storage-limit").textContent = formatBytes(data.storage_limit);
+            document.getElementById("total-size-2").textContent = formatBytes(data.stats.total_size);
+            document.getElementById("storage-limit-2").textContent = formatBytes(data.storage_limit);
         }
     } catch (error) {
         console.error("Ошибка загрузки статистики:", error);
@@ -55,7 +57,7 @@ async function loadFiles(offset = 0, append = false) {
             }
 
             if (data.files.length === 0 && offset === 0) {
-                document.getElementById("files-grid").innerHTML = '<p style="text-align: center; color: #666;">Файлы не найдены</p>';
+                document.getElementById("files-grid").innerHTML = '<p style="text-align: center; color: #666;">Files not found</p>';
             } else {
                 data.files.forEach(file => {
                     const fileCard = createFileCard(file);

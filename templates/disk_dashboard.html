@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DataVault — Диск</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='buttons_and_links.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="header_left">
+            <a class="brand" href="/">DataVault</a>
+            <span class="divider"></span>
+            <span class="title">Cloud Drive</span>
+        </div>
+        <div class="header_right">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat_value">
+                        <span id="total-size">0 MB</span>
+                        <span class="muted">/</span>
+                        <span id="storage-limit">0 MB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="alerts" class="alerts"></section>
+
+    <div class="page_grid">
+        <div class="files_tree_card_pg">
+            <div class="pg_header pg_header_no_bottom_border_mod">
+                <div class="pg_title" id="storage_tree_label">STORAGE</div>
+                <div class="pg_right" id="storage_tree_label_path">(/home)</div>
+            </div>
+
+            <div id="files-tree">Files not found</div>
+        </div>
+
+        <div class="storage_stats_card_pg">
+            <div class="storage-stat-label">Total files:</div>
+            <span class="storage-stat-value" id="total-files">0 Files</span>
+
+            <h4></h4>
+
+            <div class="storage-stat-label">Places used:</div>
+
+            <div class="storage-stat-value">
+                <span id="total-size-2">0 MB</span><span class="muted">/</span><span id="storage-limit-2">0 MB</span>
+            </div>
+
+        </div>
+
+        <div class="files_card_pg">
+            <div class="pg_header">
+                <div class="pg_title">Files of '/home'</div>
+                <div class="pg_right">
+
+                </div>
+            </div>
+            <div id="files-loading" class="loading" style="display:none">Загрузка списка файлов...</div>
+            <div id="files-grid" class="files-grid"></div>
+            <div class="files_actions">
+                <button id="load-more-btn" class="btn" style="display:none">Показать ещё</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>

@@ -14,7 +14,7 @@ def index():
 
 @app.route("/disk")
 def disk():
-    return render_template("dashboard.html")
+    return render_template("disk_dashboard.html")
 
 
 @app.route("/api/upload", methods=["POST"])
@@ -41,12 +41,14 @@ def api_download(file_hash):
         filename = result["filename"]
         mime_type = result["mime_type"]
         
-        return send_file(
+        response = send_file(
             io.BytesIO(file_data),
             as_attachment=True,
             download_name=filename,
             mimetype=mime_type
         )
+        response.headers["X-Filename"] = filename
+        return response
     else:
         return jsonify(result), 404
 

@@ -1,0 +1,227 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #eaecf0;
+    color: #1f2937;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.page_grid {
+    display: grid;
+    grid-template-columns: 1fr 3.68fr;
+    grid-template-rows: 1fr auto;
+    gap: 4px;
+    flex: 1;
+    min-height: calc(100vh - 120px);
+    margin: 0px 4px 4px 4px;
+}
+
+.files_tree_card_pg {
+    grid-column: 1;
+    grid-row: 1 / 2;
+    background: #ffffff;
+    border: 2px solid #d6dae1;
+    border-radius: 6px;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.storage_stats_card_pg {
+    grid-column: 1;
+    grid-row: 2;
+    background: #ffffff;
+    border: 2px solid #d6dae1;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.files_card_pg {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    background: #ffffff;
+    border: 2px solid #d6dae1;
+    border-radius: 6px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Grid headers */
+.pg_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #d6dae1;
+}
+
+.pg_header_no_bottom_border_mod {
+    border-bottom: 0px solid #d6dae1;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.pg_title {
+    color: #2563eb;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.pg_right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#storage_tree_label {
+    color: #41454e;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0 0 16px 0;
+}
+
+#storage_tree_label_path {
+    color: #606671;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+}
+
+.storage-stat-label {
+    color: #606671;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.storage-stat-value {
+    color: #0a4feb;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 6px;
+}
+
+/* Tree content area */
+#files-tree {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Main content wrapper */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* Alerts */
+.alerts {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 20;
+}
+
+.alert {
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.alert-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border-color: #fecaca;
+}
+
+/* Progress */
+.progress {
+    width: 100%;
+    height: 10px;
+    background: #f3f4f6;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress_fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #60a5fa, #3b82f6);
+    transition: width .2s ease;
+}
+
+/* Files grid */
+.files-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    flex: 1;
+}
+
+.file-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.file-name {
+    font-weight: 600;
+    color: #111827;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-info {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.file-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.loading {
+    color: #6b7280;
+    font-size: 14px;
+    padding: 12px;
+    text-align: center;
+}
+
+.files_actions {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+}

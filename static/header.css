@@ -1,0 +1,63 @@
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 4px;
+    background: #ffffff;
+    border: 2px solid #d6dae1;
+    border-radius: 6px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header_left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand {
+    color: #2563eb;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.divider {
+    width: 2px;
+    height: 20px;
+    background: #626b7a;
+}
+
+.title {
+    font-size: 18;
+    font-weight: 600;
+}
+
+.header_right .stats {
+    display: flex;
+    gap: 16px;
+}
+
+.stat {
+    text-align: right;
+}
+
+.stat_label {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.stat_value {
+    color: #3c434e;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.muted {
+    color: #606d80;
+    margin: 0 4px;
+}
