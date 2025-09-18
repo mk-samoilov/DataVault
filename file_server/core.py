@@ -29,7 +29,7 @@ class FileServer:
     
     def _save_metadata(self):
         with open(self.metadata_file, "w", encoding="utf-8") as f:
-            json.dump(self.metadata, f, ensure_ascii=False, indent=2)
+            f.write(json.dumps(self.metadata, ensure_ascii=False, indent=2))
     
     @staticmethod
     def _get_file_hash(file_path: Path) -> str:
