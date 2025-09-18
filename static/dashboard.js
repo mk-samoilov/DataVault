@@ -55,7 +55,7 @@ async function loadFiles(offset = 0, append = false) {
             }
 
             if (data.files.length === 0 && offset === 0) {
-                document.getElementById("files-grid").innerHTML = "<p style="text-align: center; color: #666;">Файлы не найдены</p>";
+                document.getElementById("files-grid").innerHTML = '<p style="text-align: center; color: #666;">Файлы не найдены</p>';
             } else {
                 data.files.forEach(file => {
                     const fileCard = createFileCard(file);
@@ -90,10 +90,10 @@ function createFileCard(file) {
             Загружен: ${formatDate(file.upload_time)}<br>
         </div>
         <div class="file-actions">
-            <button class="btn btn-success" onclick="downloadFile("${file.hash}")">
+            <button class="btn btn-success" onclick="downloadFile('${file.hash}')">
                 📥 Скачать
             </button>
-            <button class="btn btn-danger" onclick="deleteFile("${file.hash}")">
+            <button class="btn btn-danger" onclick="deleteFile('${file.hash}')">
                 🗑️ Удалить
             </button>
         </div>
@@ -179,34 +179,6 @@ async function uploadFile(file) {
         progressBar.style.display = "none";
         uploadLoading.style.display = "none";
         progressFill.style.width = "0%";
-    }
-}
-
-async function searchFiles(query) {
-    if (query.trim() === "") {
-        loadFiles();
-        return;
-    }
-
-    try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-        const data = await response.json();
-
-        if (data.success) {
-            document.getElementById("files-grid").innerHTML = "";
-            document.getElementById("load-more-btn").style.display = "none";
-
-            if (data.files.length === 0) {
-                document.getElementById("files-grid").innerHTML = "<p style="text-align: center; color: #666;">Файлы не найдены</p>";
-            } else {
-                data.files.forEach(file => {
-                    const fileCard = createFileCard(file);
-                    document.getElementById("files-grid").appendChild(fileCard);
-                });
-            }
-        }
-    } catch (error) {
-        showAlert("Ошибка поиска", "error");
     }
 }
 

@@ -78,12 +78,5 @@ def api_stats():
     return jsonify(result)
 
 
-@app.route("/api/search")
-def api_search():
-    query = request.args.get("q", "")
-    result = file_server_instance.search_files(query)
-    return jsonify(result)
-
-
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=80)
