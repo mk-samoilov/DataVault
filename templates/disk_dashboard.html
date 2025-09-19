@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DataVault — Диск</title>
+    <title>DataVault Cloud Drive</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='body.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='buttons_and_links.css') }}">
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/folder_icon.svg') }}">
 </head>
 <body>
     <header class="header">
@@ -56,11 +58,11 @@
 
         </div>
 
-        <div class="files_card_pg">
+        <div class="files_card_pg" id="files-card-pg">
             <div class="pg_header">
                 <div class="pg_title">Files of '/home'</div>
                 <div class="pg_right">
-
+                    <button id="upload-btn" class="btn btn-primary">Upload on this dir</button>
                 </div>
             </div>
             <div id="files-loading" class="loading" style="display:none">Загрузка списка файлов...</div>
@@ -68,6 +70,62 @@
             <div class="files_actions">
                 <button id="load-more-btn" class="btn" style="display:none">Показать ещё</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Hidden file input -->
+    <input type="file" id="file-input" multiple style="display: none;">
+    
+    <!-- Upload Modal -->
+    <div id="upload-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload files</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="upload-area" id="upload-area">
+                    <p>Drag files here or click to select</p>
+                    <input type="file" id="modal-file-input" multiple>
+                </div>
+                <div id="selected-files" class="selected-files"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="upload-files-btn" class="btn btn-primary">Upload</button>
+                <button id="cancel-upload-btn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Notification -->
+    <div id="progress-notification" class="progress-notification" style="display: none;">
+        <div class="notification-content">
+            <div class="notification-header">
+                <span id="notification-title">Uploading file...</span>
+                <span id="notification-close">&times;</span>
+            </div>
+            <div class="notification-body">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <div id="progress-text">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Context Menu -->
+    <div id="file-context-menu" class="file-context-menu">
+        <div class="context-menu-header">
+            <div class="context-menu-title" id="context-file-name">< filename ></div>
+            <div class="context-menu-info" id="context-file-info">
+                Size: <span id="context-file-size">0 KB</span><br>
+                Upload date: <span id="context-file-date">-</span>
+            </div>
+        </div>
+        <div class="context-menu-actions">
+            <button class="context-menu-btn view" id="context-view-btn">View (raw)</button>
+            <button class="context-menu-btn download" id="context-download-btn">Download</button>
+            <button class="context-menu-btn delete" id="context-delete-btn">Remove</button>
         </div>
     </div>
 

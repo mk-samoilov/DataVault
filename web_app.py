@@ -80,5 +80,24 @@ def api_stats():
     return jsonify(result)
 
 
+@app.route("/file/<filename>")
+def view_file(filename):
+    result = file_server_instance.get_file_by_name(filename)
+    
+    if result["success"]:
+        file_data = result["file_data"]
+        mime_type = result["mime_type"]
+        
+        response = send_file(
+            io.BytesIO(file_data),
+            as_attachment=False,
+            download_name=filename,
+            mimetype=mime_type
+        )
+        return response
+    else:
+        return jsonify(result), 404
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=80)

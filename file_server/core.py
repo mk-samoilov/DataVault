@@ -174,6 +174,30 @@ class FileServer:
                 })
         
         return {"success": True, "files": results, "total": len(results)}
+    
+    def get_file_by_name(self, filename: str) -> Dict:
+        """Найти файл по имени и вернуть его данные"""
+        for file_hash, file_info in self.metadata["files"].items():
+            if file_info["filename"] == filename:
+                # Загружаем данные файла
+                file_path = self.storage_dir / file_hash
+                if not file_path.exists():
+                    return {"success": False, "error": "Файл не найден на диске"}
+                
+                try:
+                    with open(file_path, "rb") as f:
+                        file_data = f.read()
+                    
+                    return {
+                        "success": True,
+                        "file_data": file_data,
+                        "filename": file_info["filename"],
+                        "mime_type": file_info["mime_type"]
+                    }
+                except Exception as e:
+                    return {"success": False, "error": str(e)}
+        
+        return {"success": False, "error": "Файл не найден"}
 
 
 file_server_instance = FileServer()
